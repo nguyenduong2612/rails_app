@@ -25,6 +25,11 @@ textarea {
   resize: vertical;
 }
 
+.page-container {
+  min-height: 100vh;
+  margin-top: 50px;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -198,3 +203,6 @@ input {
   background-color: #fff !important;
   display: block !important;
 }
+
+// custom
+

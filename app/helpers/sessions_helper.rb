@@ -10,6 +10,16 @@ module SessionsHelper
     end
   end
 
+  def admin?
+    if current_user != nil
+      if @current_user.name == "admin"
+        return true
+      else
+        return false
+      end
+    end
+  end
+
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
     !current_user.nil?  #if current_user = NULL -> false

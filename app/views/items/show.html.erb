@@ -1,0 +1,36 @@
+<div class="page-container">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @item.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @item.description %>
+  </p>
+
+  <p>
+    <strong>Difficulty:</strong>
+    <%= @item.difficulty %>
+  </p>
+
+  <p>
+    <strong>Time:</strong>
+    <%= @item.time %>
+  </p>
+
+  <p>
+    <strong>Imagelink:</strong>
+    <%= @item.imagelink %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= @item.category %>
+  </p>
+
+  <%= link_to 'Edit', edit_item_path(@item) %> |
+  <%= link_to 'Back', items_path %>
+</div>
