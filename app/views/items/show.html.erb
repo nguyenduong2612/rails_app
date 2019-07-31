@@ -1,36 +1,18 @@
 <div class="page-container">
-  <p id="notice"><%= notice %></p>
+  <div class="item-container">
+    <%= image_tag(@item.imagelink, alt: @item.name, class: "item-img") %>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @item.name %>
-  </p>
+    <span class="item-name"><%= @item.name %></span>
+    <span class="item-des"><%= @item.description %></span>
+    <span class="item-dif">難易度: <%= @item.difficulty %></span>
+    <span class="item-time">調理時間: <%= @item.time %></span>
 
-  <p>
-    <strong>Description:</strong>
-    <%= @item.description %>
-  </p>
+    <span class="item-category"><%= @item.category %></span>
 
-  <p>
-    <strong>Difficulty:</strong>
-    <%= @item.difficulty %>
-  </p>
+    <% if admin? %>
+      <%= link_to 'Edit', edit_item_path(@item) %> |
+      <%= link_to 'Back', items_path %>
+    <% end %>
+  </div>
 
-  <p>
-    <strong>Time:</strong>
-    <%= @item.time %>
-  </p>
-
-  <p>
-    <strong>Imagelink:</strong>
-    <%= @item.imagelink %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= @item.category %>
-  </p>
-
-  <%= link_to 'Edit', edit_item_path(@item) %> |
-  <%= link_to 'Back', items_path %>
 </div>
