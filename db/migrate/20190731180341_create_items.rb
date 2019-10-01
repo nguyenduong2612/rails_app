@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :difficulty
       t.string :time
       t.string :imagelink
-      t.integer :category
+      t.integer :category_id
 
       t.timestamps
     end

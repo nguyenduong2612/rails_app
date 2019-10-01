@@ -1,7 +1,10 @@
 <div class="page-container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Items</h1>
+  <p>
+    <strong>Name:</strong>
+    <%= @category.name %>
+  </p>
 
   <table>
     <thead>
@@ -17,7 +20,7 @@
     </thead>
 
     <tbody>
-      <% @items.each do |item| %>
+      <% @category.items.each do |item| %>
         <tr>
           <td><%= item.name %></td>
           <td><%= item.description %></td>
@@ -26,14 +29,17 @@
           <td><%= item.imagelink %></td>
           <td><%= item.category.name %></td>
           <td><%= link_to 'Show', item %></td>
-          <td><%= link_to 'Edit', edit_item_path(item) %></td>
-          <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if admin? %>
+            <td><%= link_to 'Edit', edit_item_path(item) %></td>
+            <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <br>
-
-  <%= link_to 'New Item', new_item_path %>
+  <% if admin? %>
+    <%= link_to 'Edit', edit_category_path(@category) %> |
+    <%= link_to 'Back', categories_path %>
+  <% end %>
 </div>

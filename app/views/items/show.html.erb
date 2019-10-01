@@ -7,7 +7,7 @@
     <span class="item-dif">難易度: <%= @item.difficulty %></span>
     <span class="item-time">調理時間: <%= @item.time %></span>
 
-    <span class="item-category"><%= @item.category %></span>
+    <span class="item-category"><%= @item.category.name %></span>
 
     <% if admin? %>
       <%= link_to 'Edit', edit_item_path(@item) %> |
