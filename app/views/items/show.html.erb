@@ -1,18 +1,33 @@
 <div class="page-container">
   <div class="item-container">
-    <%= image_tag(@item.imagelink, alt: @item.name, class: "item-img") %>
+    <div class="row">
+      <div class="col-md-8">
+        <h3><%= link_to @item.category.name, @item.category %> > <%= @item.name =%> </h3>
+        <%= image_tag(@item.imagelink, alt: @item.name, class: "item-img") %>
 
-    <span class="item-name"><%= @item.name %></span>
-    <span class="item-des"><%= @item.description %></span>
-    <span class="item-dif">難易度: <%= @item.difficulty %></span>
-    <span class="item-time">調理時間: <%= @item.time %></span>
+        <span class="item-name"><%= @item.name %></span>
+        <span class="item-des"><%= @item.description %></span>
+        <span class="item-dif">難易度: <%= @item.difficulty %></span>
+        <span class="item-time">調理時間: <%= @item.time %></span>
 
-    <span class="item-category"><%= @item.category.name %></span>
+        <span class="item-category"><%= @item.category.name %></span>
 
-    <% if admin? %>
-      <%= link_to 'Edit', edit_item_path(@item) %> |
-      <%= link_to 'Back', items_path %>
-    <% end %>
+        <% if admin? %>
+          <%= link_to 'Edit', edit_item_path(@item) %> |
+          <%= link_to 'Back', items_path %>
+        <% end %>
+      </div>
+
+      <div class="col-md-4">
+        <h3>Relavite items</h3>
+        <% get_relative_items(@item.category_id).each do |item| %>
+          <% if item.name != @item.name %>
+            <%= item.name %>
+            <%= link_to 'Show', item %><br>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
 </div>

@@ -10,7 +10,8 @@
       <h3>Search Result</h3>  
 
         <% @results.each do |result| %>  
-            <%= result.name %><br>  
+            <%= result.name %>
+            <%= link_to 'Show', result %><br>
         <% end %>
     </div>
   </body>
