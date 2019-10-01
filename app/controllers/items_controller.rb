@@ -20,6 +20,11 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    unless admin?
+      render(
+          html: "<script>alert('Admin only! Please log in with admin !')</script>".html_safe
+        )
+    end
   end
 
   # POST /items

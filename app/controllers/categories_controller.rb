@@ -20,6 +20,11 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
+    unless admin?
+      render(
+          html: "<script>alert('Admin only! Please log in with admin !')</script>".html_safe
+        )
+    end
   end
 
   # POST /categories
